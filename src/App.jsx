@@ -19,9 +19,11 @@ import Product4 from './pages/products4'
 import ForgetPassword from './pages/login/forgotpassword'
 import SellerDashBoard from './pages/seller/sellerDashBoard'
 import AdminDashboard from './pages/admin/adminDashBoard'
-import ProductDetails from './pages/admin/productDetails'
 import AddProduct from './pages/seller/addProduct'
 import UpdateProduct from './pages/seller/updateProduct'
+import ViewProduct from './pages/seller/viewProduct'
+import ViewSeller from './pages/admin/viewSeller'
+
 
 function App() {
   return (
@@ -43,9 +45,11 @@ function App() {
       <Route path='/products4' element={< Product4/>}/>
       <Route path='/sellerDashBoard' element={<SellerDashBoard/>}/>
       <Route path='/adminDashBoard' element={<AdminDashboard/>}/>
-      <Route path='/productDetails' element={<ProductDetails/>}/>
+      
       <Route path='/addProduct' element={<AddProduct/>}/>
       <Route path='/updateProduct' element={<UpdateProduct/>}/>
+      <Route path='/viewProduct' element={<ViewProduct/>}/>
+      <Route path='/viewSeller' element={<ViewSeller/>}/>
 
 
       </Routes>

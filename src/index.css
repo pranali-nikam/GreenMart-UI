@@ -59,11 +59,31 @@ code {
   cursor: pointer;
   transition: transform 0.2s ease-in-out;
 }
+.admin-grid{
+  width: 90%;
+  
+  margin-top: 0px;
+  gap: 40px;
+  display: flex;
+  justify-content: center;
+}
+.admin-card {
+  width: 200px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  
+  background-color: #39b4d2;
+  padding: 50px;
+  font-size: 20px;
+  text-align: center;
+}
 .seller-grid{
   width: 90%;
   
   margin-top: 0px;
-  gap: 20px;
+  gap: 40px;
   display: flex;
   justify-content: center;
 }
@@ -96,12 +116,7 @@ code {
   text-align: center;
   background-color: #5dbd72;
 }
-.sidebar-menu {
-  
-  border-radius: 2px;
-  border-color: rgb(255, 255, 255);
-  margin-top: 30px;
-}
+
 
 
 /* 2nd nav bar */
@@ -190,12 +205,15 @@ body {
   display: flex;
 }
 
-.sidebar {
+.sidebar-menu {
 width: 70%;
-
+height: 60px;
   box-sizing: border-box;
   background-color: #0b5312;
-  text-align: center;
+  text-align:center;
+  border-radius: 2px;
+  border-color: rgb(255, 255, 255);
+  margin-top: 30px;
 }
 
 .sidebar-section {

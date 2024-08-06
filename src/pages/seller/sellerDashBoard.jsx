@@ -39,7 +39,7 @@ function SellerDashBoard(){
                 </div >
                 <div className="sidebar-menu">
                 <li>
-                  <a href="/products4">View Products</a>
+                  <a href="/viewProduct">View Products</a>
                 </li>
                 </div>
                 <div className="sidebar-menu">
@@ -52,16 +52,7 @@ function SellerDashBoard(){
                   <a href="/addProduct">Add Product</a>
                 </li>
                 </div>
-                <div className="sidebar-menu">
-                <li>
-                  <a href="/updateProduct">Update Product</a>
-                </li>
-                </div>
-                <div className="sidebar-menu">
-                <li>
-                  <a href="/products2">Delete Product</a>
-                </li>
-                </div>
+                
                
               </ul>
             </nav>
@@ -103,22 +94,7 @@ function SellerDashBoard(){
               >Total Delivery 
               </div>
     
-              <div
-                class="seller-card"
-                onclick="navigateToProduct('product3.html')"
-              > Add New Product
-              </div>
-    
-              <div
-                class="seller-card"
-                onclick="navigateToProduct('product4.html')"
-              >Update Product
-              </div>
-              <div
-                class="seller-card"
-                onclick="navigateToProduct('product3.html')"
-              > Delete Product
-              </div>
+              
     
             </div>
             </div>

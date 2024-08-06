@@ -1,75 +1,131 @@
-function AdminDashboard() {
-    return (
-      <div class="mcontainer">
 
-<div class="header">
-
-    <h1 class="page-title"><b>WELCOME TO ADMIN DASHBOARD</b></h1>
-  </div>
-  <div class="main-content">
-  <div class="sidebar">
+import logo from '../../images/logo.png'
+function AdminDashBoard(){
     
-    <div class="sidebar-section">
-      <h3>Categories</h3>
-      
-      <ul class="category-list">
-        <li><a href="#">Profile</a></li>
-        <li><a href="#">View Seller </a></li>
-        <li><a href="#">View Users</a></li>
-        <li><a href="#">View Products</a></li>
-        
-      </ul>
-    </div>
-
-    
-  
-  </div>
-
-
-  
-  <div class="products-list">
-    
-    
-    <div class="product-item">
-      
-      <h5>Total Products</h5>
-      
-      <p><b>--</b></p>
-      
-    </div>
-
-    <div class="product-item">
    
-      <h5>Total Sellers</h5>
-     
-      <p><b>--</b></p>
-     
-    </div>
-
-
-    <div class="product-item">
-     
-      <h5>Total Users</h5>
+    
+      return (
+        <div>
+          <div class="header ">
+            <div class="container-fluid">
+              <div class="row align-items-center">
+                <div class="col-md-3">
+                  <a class="navbar-brand" href="/">
+                    <img src={logo} alt="Logo" style={{ width: " 120px" }} />
+                  </a>
+                </div>
+                <div class="col-md-6 text-center">
+                 <h2>Admin</h2>
+                </div>
+               
+    
+                 
+                 
+              </div>
+            </div>
+          </div>
+    
+    {/* 2nd nav */}
+    
+          <div className="container-fluid">
+            <div className="row">
+                <div className="col-md-3">
+            <nav class="sidebar">
+              <ul class="nav-menu">
+                <div className="sidebar-menu">
+                <li>
+                  <a href="/products">Profile</a>
+                </li>
+                </div >
+                <div className="sidebar-menu">
+                <li>
+                  <a href="/viewProduct">View Products</a>
+                </li>
+                </div>
+                <div className="sidebar-menu">
+                <li>
+                  <a href="/viewSeller">View Sellers</a>
+                </li>
+                </div>
+                <div className="sidebar-menu">
+                <li>
+                  <a href="/addProduct">View Customers</a>
+                </li>
+                </div>
+                
+               
+              </ul>
+            </nav>
+          
+    
+            </div>
+    
       
-      <p><b>--</b></p>
-      
-    </div>
+    
+    
+    
+    
+    
+    
+    {/* Category */}
+          <div className="col-md-9">
+            <br/>
+            <center>
+          <h4>Search by Category </h4>
+          </center>
+          <br/>
+            <div class="admin-grid">
+              
+              <div
+                class="admin-card"
+                onclick="navigateToProduct('product1.html')"
+              >Total Customers
+              </div>
+    
+              <div
+                class="admin-card"
+                onclick="navigateToProduct('product1.html')"
+              >Total Orders
+              </div>
+    
+              <div
+                class="admin-card"
+                onclick="navigateToProduct('product2.html')"
+              >Total Delivery 
+              </div>
 
+              <div
+                class="admin-card"
+                onclick="navigateToProduct('product2.html')"
+              >Total Products
+              </div>
+    
+    
+              
+    
+            </div>
+            </div>
+           
+            
+            <script>
+              {/* function navigateToProduct(url) {
+      window.location.href = url
+    } */}
+            </script>
+          </div>
+          </div>  
+    
+    {/* footer */}
+    
+          <div>
+            <footer className="footer">
+              <p>© 2024 GREENIFY</p>
+            </footer>
+          </div>
+          </div>
+      );
+    
 
-    <div class="product-item">
-     
-      <h5>Total Products</h5>
-      
-      <p><b>--</b></p>
-      
-    </div>
-
-
-   
-</div>
-</div>
-</div>
-   )
-  }
-  
-  export default AdminDashboard
+    
+}
+export default AdminDashBoard
