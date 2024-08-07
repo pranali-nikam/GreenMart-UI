@@ -23,7 +23,7 @@ function UpdateProduct() {
           </div>
 <div className="div-center">
 <div>
-      <h2 className='page-title'>Update Product</h2>
+      <h2 className='page-title'> Update Product</h2>
 
       <div className='row mt-5'>
         <div className='col-4'></div>
