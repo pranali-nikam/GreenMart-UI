@@ -44,7 +44,17 @@ function SellerDashBoard(){
                 </div>
                 <div className="sidebar-menu">
                 <li>
-                  <a href="/products2">View Orders</a>
+                  <a href="/viewPendingOrder">View Pending Orders</a>
+                </li>
+                </div>
+                <div className="sidebar-menu">
+                <li>
+                  <a href="/viewShippedOrder">View Shipped Orders</a>
+                </li>
+                </div>
+                <div className="sidebar-menu">
+                <li>
+                  <a href="/viewDeliveredOrder">View Delivered Orders</a>
                 </li>
                 </div>
                 <div className="sidebar-menu">
@@ -85,13 +95,19 @@ function SellerDashBoard(){
               <div
                 class="seller-card"
                 onclick="navigateToProduct('product1.html')"
-              >Total Orders
+              >Total Pending Orders
+              </div>
+
+              <div
+                class="seller-card"
+                onclick="navigateToProduct('product1.html')"
+              >Total Shiiped Orders
               </div>
     
               <div
                 class="seller-card"
                 onclick="navigateToProduct('product2.html')"
-              >Total Delivery 
+              >Total Delivered Orders
               </div>
     
               

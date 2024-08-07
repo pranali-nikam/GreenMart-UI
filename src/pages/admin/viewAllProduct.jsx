@@ -1,5 +1,5 @@
 import logo from '../../images/logo.png'
-function ViewCustomer(){
+function ViewAllProduct(){
     return (
        
     
@@ -26,18 +26,18 @@ function ViewCustomer(){
                   </div>
         <div className="div-center">
         <div>
-              <h2 className='page-title'> Customers List</h2>
+              <h2 className='page-title'> Product List</h2>
               <div className='container'>
               <div class="table-responsive">
 			<table class="table table-bordered">
 				<thead>
 					<tr>
-						<th>First Name</th>
-					    <th>Last Name</th>
-					    <th>Email</th>
-                        <th>Password</th>
-                        <th>Dob</th>
-                        <th>Mobile Number</th>
+						<th>Product Name</th>
+					    <th>Description</th>
+					    <th>Stock</th>
+                        <th>Image</th>
+                        <th>Price</th>
+                        <th>Category Name</th>
                         <th>Action</th>
 					</tr>
 				</thead>
@@ -45,18 +45,17 @@ function ViewCustomer(){
 			
 				
 					<tr>
-						<td>Nilesh</td>
-						<td>Chavan</td>
-						<td>Nilesh@gmail.com</td>
-                        <td>abcd</td>
-                        <td>12/3/1998</td>
-						<td>1234567890 </td>
-						
+						<td>Product</td>
+						<td>Description</td>
+						<td>Quantity</td>
+                        <td>Image</td>
+						<td>Price </td>
+						<td>Category</td>
 						<td>
-							<a class="btn btn-danger" >Block</a>
+							<a class="btn btn-warning" href="/updateProduct">Update</a>
 						</td>
 						<td>
-						    <a class="btn btn-secondary" >Cancel</a>
+						    <a class="btn btn-danger" >Delete</a>
 						</td>
 					</tr>
 
@@ -84,4 +83,4 @@ function ViewCustomer(){
         
     );
 }
-export default ViewCustomer
+export default ViewAllProduct

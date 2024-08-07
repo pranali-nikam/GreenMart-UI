@@ -1,5 +1,5 @@
 import logo from '../../images/logo.png'
-function ViewCustomer(){
+function ViewAllPendingOrder(){
     return (
        
     
@@ -26,38 +26,31 @@ function ViewCustomer(){
                   </div>
         <div className="div-center">
         <div>
-              <h2 className='page-title'> Customers List</h2>
+              <h2 className='page-title'> All Pending Orders</h2>
               <div className='container'>
               <div class="table-responsive">
 			<table class="table table-bordered">
 				<thead>
 					<tr>
-						<th>First Name</th>
-					    <th>Last Name</th>
-					    <th>Email</th>
-                        <th>Password</th>
-                        <th>Dob</th>
-                        <th>Mobile Number</th>
-                        <th>Action</th>
+						  <th>Date</th>
+					    <th>Order Id</th>
+					    <th>Customer Name</th>
+                        <th>Status</th>
+                        <th>Total Amount</th>
+                       
 					</tr>
 				</thead>
 				<tbody>
 			
 				
 					<tr>
-						<td>Nilesh</td>
-						<td>Chavan</td>
-						<td>Nilesh@gmail.com</td>
-                        <td>abcd</td>
-                        <td>12/3/1998</td>
-						<td>1234567890 </td>
+						<td>2024/08/08</td>
+						<td>34</td>
+						<td>Customer</td>
+            <td>Pending</td>
+						<td>550.00 </td>
 						
-						<td>
-							<a class="btn btn-danger" >Block</a>
-						</td>
-						<td>
-						    <a class="btn btn-secondary" >Cancel</a>
-						</td>
+						
 					</tr>
 
 				
@@ -84,4 +77,4 @@ function ViewCustomer(){
         
     );
 }
-export default ViewCustomer
+export default ViewAllPendingOrder

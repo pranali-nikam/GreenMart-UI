@@ -74,7 +74,7 @@ code {
   overflow: hidden;
   cursor: pointer;
   
-  background-color: #39b4d2;
+  background-color: #48bad7;
   padding: 50px;
   font-size: 20px;
   text-align: center;
@@ -206,14 +206,15 @@ body {
 }
 
 .sidebar-menu {
-width: 70%;
-height: 60px;
+  width: 70%;
+  height: 50px;
   box-sizing: border-box;
   background-color: #0b5312;
   text-align:center;
   border-radius: 2px;
-  border-color: rgb(255, 255, 255);
   margin-top: 30px;
+  margin-left: 50px;
+  margin-bottom: 30px;
 }
 
 .sidebar-section {
@@ -314,4 +315,10 @@ height: 60px;
   width: 100%;
   text-align: center;
   margin-bottom: 20px;
+}
+.sidebar{
+  border-width: 1px;
+  border-color: black;
+  border-style: solid;
+  background-color: #d4fbcf;
 }

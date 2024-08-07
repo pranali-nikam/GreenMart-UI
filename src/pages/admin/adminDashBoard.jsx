@@ -39,7 +39,7 @@ function AdminDashBoard(){
                 </div >
                 <div className="sidebar-menu">
                 <li>
-                  <a href="/viewProduct">View Products</a>
+                  <a href="/viewAllProduct">View Products</a>
                 </li>
                 </div>
                 <div className="sidebar-menu">
@@ -49,7 +49,22 @@ function AdminDashBoard(){
                 </div>
                 <div className="sidebar-menu">
                 <li>
-                  <a href="/addProduct">View Customers</a>
+                  <a href="/viewCustomer">View Customers</a>
+                </li>
+                </div>
+                <div className="sidebar-menu">
+                <li>
+                  <a href="/viewAllPendingOrder">View Pending Orders</a>
+                </li>
+                </div>
+                <div className="sidebar-menu">
+                <li>
+                  <a href="/viewAllShippedOrder">View Shipped Orders</a>
+                </li>
+                </div>
+                <div className="sidebar-menu">
+                <li>
+                  <a href="/viewAllDeliveredOrder">View Delivered Orders</a>
                 </li>
                 </div>
                 
@@ -85,13 +100,19 @@ function AdminDashBoard(){
               <div
                 class="admin-card"
                 onclick="navigateToProduct('product1.html')"
-              >Total Orders
+              >Total Pending Orders
+              </div>
+               
+              <div
+                class="admin-card"
+                onclick="navigateToProduct('product1.html')"
+              >Total Shipped Orders
               </div>
     
               <div
                 class="admin-card"
                 onclick="navigateToProduct('product2.html')"
-              >Total Delivery 
+              >Total Delivered Orders 
               </div>
 
               <div
