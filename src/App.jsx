@@ -54,7 +54,8 @@ function App() {
       <Route path='/sellerDashBoard' element={<SellerDashBoard/>}/>
       <Route path='/adminDashBoard' element={<AdminDashboard/>}/>
       
-      <Route path='/addProduct' element={<AddProduct/>}/>
+      <Route path='/addProduct/:sellerId' element={<AddProduct/>}/>
+      
       <Route path='/updateProduct' element={<UpdateProduct/>}/>
       <Route path='/viewProduct' element={<ViewProduct/>}/>
       <Route path='/viewSeller' element={<ViewSeller/>}/>
