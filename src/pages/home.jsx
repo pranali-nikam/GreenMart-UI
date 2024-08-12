@@ -4,6 +4,7 @@ import image3 from '../images/Eco Essentials.jpeg'
 import image4 from '../images/decorative.jpg'
 import image5 from '../images/recycled.jpg'
 import logo from '../images/logo.png'
+import Footer from '../components/Footer'
 function Home() {
   return (
     <div>
@@ -150,11 +151,7 @@ function Home() {
 
 {/* footer */}
 
-      <div>
-        <footer className="footer">
-          <p>© 2024 GREENIFY</p>
-        </footer>
-      </div>
+     <Footer/>
     </div>
   );
 }

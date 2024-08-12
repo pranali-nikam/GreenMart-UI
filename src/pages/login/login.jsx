@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom"
 import Register from "../register/register"
-
 function Login() {
     return (
         
