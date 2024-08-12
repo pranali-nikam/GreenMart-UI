@@ -1,3 +1,4 @@
+import Footer from '../../components/Footer';
 import logo from '../../images/logo.png'
 function ViewAllProduct(){
     return (
@@ -72,12 +73,7 @@ function ViewAllProduct(){
         
          {/* footer */}
             
-         <div>
-                    <footer className="footer">
-                      <p>© 2024 GREENIFY</p>
-                    </footer>
-                  </div>
-            
+          <Footer/>        
         
         </div>
         

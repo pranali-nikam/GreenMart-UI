@@ -1,7 +1,7 @@
 function SellerLogin() {
     return (
       <div>
-      <h2 className='page-title'>Admin Login</h2>
+      <h2 className='page-title'>Seller Login</h2>
 
       <div className='row'>
         <div className='col'></div>

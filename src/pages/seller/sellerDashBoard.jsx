@@ -1,4 +1,5 @@
 
+import Footer from '../../components/Footer';
 import logo from '../../images/logo.png'
 function SellerDashBoard(){
     
@@ -126,11 +127,7 @@ function SellerDashBoard(){
     
     {/* footer */}
     
-          <div>
-            <footer className="footer">
-              <p>© 2024 GREENIFY</p>
-            </footer>
-          </div>
+         <Footer/>
           </div>
       );
     

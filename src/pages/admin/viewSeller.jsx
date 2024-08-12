@@ -1,3 +1,4 @@
+import Footer from '../../components/Footer';
 import logo from '../../images/logo.png'
 function ViewSeller(){
     return (
@@ -74,11 +75,7 @@ function ViewSeller(){
         
          {/* footer */}
             
-         <div>
-                    <footer className="footer">
-                      <p>© 2024 GREENIFY</p>
-                    </footer>
-                  </div>
+         <Footer/>
             
         
         </div>

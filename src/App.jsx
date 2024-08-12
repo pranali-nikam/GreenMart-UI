@@ -6,7 +6,6 @@ import Register from './pages/register/register'
 import Login from './pages/login/login'
 import Home from './pages/home'
 import AdminLogin from './pages/login/adminLogin'
-import AdminRegister from './pages/register/adminRegister'
 import SellerLogin from './pages/login/sellerLogin'
 import SellerRegister from './pages/register/sellerRegister'
 
@@ -40,7 +39,6 @@ function App() {
     <Routes>
     <Route path='/' element={<Home/>}/>
       <Route path='/login' element={<Login/>}/>
-      <Route path='/adminRegister' element={<AdminRegister/>}/>
       <Route path='/adminLogin' element={< AdminLogin/>}/>
       <Route path='/register' element={< Register/>}/>
       <Route path='/sellerLogin' element={<SellerLogin/>}/>
