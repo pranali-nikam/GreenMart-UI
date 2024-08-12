@@ -89,6 +89,7 @@ const AddProductPage = () => {
               <a className="navbar-brand" href="/">
                 <img src={logo} alt="Logo" style={{ width: "120px" }} />
               </a>
+
             </div>
             <div className="col-md-6 text-center">
               <h2>Seller</h2>

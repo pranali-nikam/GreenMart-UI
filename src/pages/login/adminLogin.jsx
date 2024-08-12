@@ -17,10 +17,6 @@ function AdminLogin() {
               <input type='password'className='form-control'/>
             </div>
             <div className='mb-3'>
-              <div>
-              
-                <p>Don't have user account? <a href="/adminRegister">Register here</a></p>
-              </div>
               <button className='mt-2 btn btn-success'>
                 Login
               </button>
