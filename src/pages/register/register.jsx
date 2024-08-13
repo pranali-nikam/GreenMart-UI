@@ -2,7 +2,7 @@ import './Register.css';
 import { useState } from "react"
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify'
-import { register } from '../services/user'
+import { register } from '../../services/user';
 
 function Register() {
 
