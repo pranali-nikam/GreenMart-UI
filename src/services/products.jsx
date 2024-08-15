@@ -234,7 +234,7 @@ export async function getAllOrderCounts() {
     return response.data;
    
   } catch (error) {
-    throw new Error("Error fetching tota order count : " + error.message);
+    throw new Error("Error fetching total order count : " + error.message);
   }
 }
 

@@ -22,6 +22,7 @@ function LoginUser() {
           toast.success("Login successful");
           navigate("/SellerDashboard");
         } else if (result.role === "ADMIN") {
+          sessionStorage.setItem("customerid", result.id);
           console.log(result);
           toast.success("Admin logged in successfully");
           navigate("/AdminDashboardPage");

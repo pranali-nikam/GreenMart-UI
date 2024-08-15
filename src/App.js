@@ -13,8 +13,6 @@ import Cart from './pages/Cart';
 import Wishlist from './pages/Wishlist';
 
 import AdminDashboardPage from './pages/AdminDashboardPage';
-import ViewCustomers from "./pages/ViewCustomers";
-import ViewSellers from "./pages/ViewSellers";
 import Contact from './pages/Contact';
 import About from './components/About';
 import AboutPage from './pages/AboutPage';
@@ -33,6 +31,13 @@ import ViewPendingOrder from './pages/viewPendingOrder';
 import ViewShippedOrder from './pages/viewShippedOrder';
 import ViewDeliveredOrder from './pages/viewDeliveredOrder';
 import SellerProfile from './pages/SellerProfile';
+import ViewAdminProfile from './pages/adminProfile';
+import ViewCustomer from './pages/viewCustomer';
+import ViewSeller from './pages/viewSeller';
+import ViewAllProduct from './pages/viewAllProduct';
+import ViewAllPendingOrder from './pages/viewAllPendingOrder';
+import ViewAllShippedOrder from './pages/viewAllShippedOrder';
+
 
 
 function App() {
@@ -54,14 +59,8 @@ function App() {
         <Route path="/SellerDashboard" element={<SellerDashboard />} />
         <Route path="/About" element={<AboutPage />} />
         <Route path="/AdminDashboardPage" element={<AdminDashboardPage />} />
-        <Route
-          path="/AdminDashboardPage/viewCustomers"
-          element={<ViewCustomers />}
-        />
-        <Route
-          path="/AdminDashboardPage/viewSellers"
-          element={<ViewSellers />}
-        />
+        <Route path='/viewSeller' element={<ViewSeller/>}/>
+
         <Route path="/search-results" element={<SearchResults />} />
         <Route path="add-product/:sellerId" element={<AddProductPage />} />
         <Route path="viewProduct/:sellerId" element={<ViewProduct />} />
@@ -70,6 +69,13 @@ function App() {
         <Route path='/viewShippedOrder/:sellerId' element={<ViewShippedOrder/>}/>
         <Route path='/viewDeliveredOrder/:sellerId' element={<ViewDeliveredOrder/>}/>
         <Route path='/sellerProfile/:sellerId' element= {<SellerProfile/>}/>
+        <Route path='/adminProfile/:userId' element= {<ViewAdminProfile/>}/>
+        <Route path='/viewCustomer' element={<ViewCustomer/>}/>
+        <Route path='/viewAllProduct' element={<ViewAllProduct/>}/>
+        <Route path='/viewAllPendingOrder' element={<ViewAllPendingOrder/>}/>
+        <Route path='/viewAllShippedOrder' element={<ViewAllPendingOrder/>}/>
+
+
 
 
         <Route
