@@ -64,7 +64,7 @@ function SellerDashBoard() {
 
   return (
 
-    <div style={{ textAlign: "center", padding: "50px 0" }}>
+   <div style={{ textAlign: "center", padding: "50px 0" }}>
     <Navbar />
     <h1 style={{ marginBottom: "50px", marginTop: 100 }}>SELLER DASHBOARD</h1>
     <div>

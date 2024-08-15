@@ -108,3 +108,38 @@ export async function getSellerProfile(sellerId) {
     throw new Error("Error fetching seller profile: " + error.message);
   }
 }
+
+export async function getAdminProfile(userId) {
+  try {
+    const response = await axios.get(`${config.url}/admin/getAdminProfile/${userId}`); 
+    return response.data;
+  } catch (error) {
+    throw new Error("Error fetching admin profile: " + error.message);
+  }
+}
+
+export async function updateUserStatus(userId, isBlocked) {
+  try {
+    const response = await axios.patch(`${config.url}/admin/blockUnblockUser/${userId}`,null, {
+      params: {
+        isBlocked,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    throw new Error("Error updating user status: " + error.message);
+  }
+}
+
+export async function updateSellerStatus(sellerId, isBlocked) {
+  try {
+    const response = await axios.patch(`${config.url}/admin/blockUnblockSeller/${sellerId}`,null, {
+      params: {
+        isBlocked,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    throw new Error("Error updating user status: " + error.message);
+  }
+}
