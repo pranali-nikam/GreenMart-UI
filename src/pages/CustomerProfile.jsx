@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import BarNav from '../components/BarNav';
 import config from "../config";
 
 function CustomerProfile() {
@@ -62,26 +63,51 @@ function CustomerProfile() {
     }
   };
 
+  const handleViewOrders = () => {
+    navigate(`/orders/${customerId}`);
+  };
+
   if (!user) {
-    return <div style={{ textAlign: "center", fontSize: "20px", color: "#555" }}>Loading...</div>;
+    return (
+      <div style={{ textAlign: "center", fontSize: "20px", color: "#555" }}>
+        Loading...
+      </div>
+    );
   }
 
   return (
-    <div style={{
-      maxWidth: "800px",
-      margin: "0 auto",
-      padding: "20px",
-      backgroundColor: "#f9f9f9",
-      borderRadius: "10px",
-      boxShadow: "0 0 15px rgba(0, 0, 0, 0.1)"
-    }}>
-      <h2 style={{ textAlign: "center", color: "#333", fontSize: "24px", marginBottom: "20px" }}>
+    <div className='container-fluid p-0'>
+    <div><BarNav /></div> 
+    <div
+      style={{
+        maxWidth: "800px",
+        margin: "0 auto",
+        padding: "20px",
+        backgroundColor: "#f9f9f9",
+        borderRadius: "10px",
+        boxShadow: "0 0 15px rgba(0, 0, 0, 0.1)",
+      }}
+    >
+      <h2
+        style={{
+          textAlign: "center",
+          color: "#333",
+          fontSize: "24px",
+          marginBottom: "20px",
+        }}
+      >
         Customer Profile
       </h2>
       <div style={{ marginBottom: "20px" }}>
-        <p><strong>Name:</strong> {user.name}</p>
-        <p><strong>Email:</strong> {user.email}</p>
-        <p><strong>Mobile Number:</strong> {user.mobileNumber}</p>
+        <p>
+          <strong>Name:</strong> {user.name}
+        </p>
+        <p>
+          <strong>Email:</strong> {user.email}
+        </p>
+        <p>
+          <strong>Mobile Number:</strong> {user.mobileNumber}
+        </p>
         <p>
           <strong>Date of Birth:</strong>{" "}
           {user.dob ? new Date(user.dob).toLocaleDateString() : "N/A"}
@@ -89,21 +115,35 @@ function CustomerProfile() {
       </div>
 
       {user.shippingDetail ? (
-        <div style={{
-          marginTop: "30px",
-          padding: "15px",
-          backgroundColor: "#e3f2fd",
-          borderRadius: "8px"
-        }}>
+        <div
+          style={{
+            marginTop: "30px",
+            padding: "15px",
+            backgroundColor: "#e3f2fd",
+            borderRadius: "8px",
+          }}
+        >
           <h3>Address</h3>
-          <p><strong>Address Line 1:</strong> {user.shippingDetail.addressLine1}</p>
-          <p><strong>Address Line 2:</strong> {user.shippingDetail.addressLine2}</p>
-          <p><strong>City:</strong> {user.shippingDetail.city}</p>
-          <p><strong>State:</strong> {user.shippingDetail.state}</p>
-          <p><strong>Country:</strong> {user.shippingDetail.country}</p>
-          <p><strong>Zip Code:</strong> {user.shippingDetail.zipcode}</p>
+          <p>
+            <strong>Address Line 1:</strong> {user.shippingDetail.addressLine1}
+          </p>
+          <p>
+            <strong>Address Line 2:</strong> {user.shippingDetail.addressLine2}
+          </p>
+          <p>
+            <strong>City:</strong> {user.shippingDetail.city}
+          </p>
+          <p>
+            <strong>State:</strong> {user.shippingDetail.state}
+          </p>
+          <p>
+            <strong>Country:</strong> {user.shippingDetail.country}
+          </p>
+          <p>
+            <strong>Zip Code:</strong> {user.shippingDetail.zipcode}
+          </p>
           <button
-            onClick={() => navigate("/Home")}
+            onClick={handleViewOrders}
             style={{
               marginTop: "15px",
               padding: "10px 20px",
@@ -111,24 +151,36 @@ function CustomerProfile() {
               color: "white",
               border: "none",
               borderRadius: "5px",
-              cursor: "pointer"
+              cursor: "pointer",
+              display: "block",
+              width: "100%",
+              textAlign: "center",
             }}
           >
-            Go to Home
+            View Orders
           </button>
         </div>
       ) : (
         showAddressForm && (
-          <div style={{
-            marginTop: "30px",
-            padding: "20px",
-            backgroundColor: "#fff3e0",
-            borderRadius: "8px"
-          }}>
+          <div
+            style={{
+              marginTop: "30px",
+              padding: "20px",
+              backgroundColor: "#fff3e0",
+              borderRadius: "8px",
+            }}
+          >
             <h3>Add Address</h3>
             <form onSubmit={handleAddressSubmit} style={{ marginBottom: "20px" }}>
               <div style={{ marginBottom: "15px" }}>
-                <label style={{ display: "block", marginBottom: "5px", fontWeight: "bold", color: "#333" }}>
+                <label
+                  style={{
+                    display: "block",
+                    marginBottom: "5px",
+                    fontWeight: "bold",
+                    color: "#333",
+                  }}
+                >
                   Address Line 1:
                 </label>
                 <input
@@ -142,12 +194,19 @@ function CustomerProfile() {
                     padding: "8px",
                     border: "1px solid #ccc",
                     borderRadius: "4px",
-                    boxSizing: "border-box"
+                    boxSizing: "border-box",
                   }}
                 />
               </div>
               <div style={{ marginBottom: "15px" }}>
-                <label style={{ display: "block", marginBottom: "5px", fontWeight: "bold", color: "#333" }}>
+                <label
+                  style={{
+                    display: "block",
+                    marginBottom: "5px",
+                    fontWeight: "bold",
+                    color: "#333",
+                  }}
+                >
                   Address Line 2:
                 </label>
                 <input
@@ -160,12 +219,19 @@ function CustomerProfile() {
                     padding: "8px",
                     border: "1px solid #ccc",
                     borderRadius: "4px",
-                    boxSizing: "border-box"
+                    boxSizing: "border-box",
                   }}
                 />
               </div>
               <div style={{ marginBottom: "15px" }}>
-                <label style={{ display: "block", marginBottom: "5px", fontWeight: "bold", color: "#333" }}>
+                <label
+                  style={{
+                    display: "block",
+                    marginBottom: "5px",
+                    fontWeight: "bold",
+                    color: "#333",
+                  }}
+                >
                   City:
                 </label>
                 <input
@@ -179,12 +245,19 @@ function CustomerProfile() {
                     padding: "8px",
                     border: "1px solid #ccc",
                     borderRadius: "4px",
-                    boxSizing: "border-box"
+                    boxSizing: "border-box",
                   }}
                 />
               </div>
               <div style={{ marginBottom: "15px" }}>
-                <label style={{ display: "block", marginBottom: "5px", fontWeight: "bold", color: "#333" }}>
+                <label
+                  style={{
+                    display: "block",
+                    marginBottom: "5px",
+                    fontWeight: "bold",
+                    color: "#333",
+                  }}
+                >
                   State:
                 </label>
                 <input
@@ -198,12 +271,19 @@ function CustomerProfile() {
                     padding: "8px",
                     border: "1px solid #ccc",
                     borderRadius: "4px",
-                    boxSizing: "border-box"
+                    boxSizing: "border-box",
                   }}
                 />
               </div>
               <div style={{ marginBottom: "15px" }}>
-                <label style={{ display: "block", marginBottom: "5px", fontWeight: "bold", color: "#333" }}>
+                <label
+                  style={{
+                    display: "block",
+                    marginBottom: "5px",
+                    fontWeight: "bold",
+                    color: "#333",
+                  }}
+                >
                   Country:
                 </label>
                 <input
@@ -217,12 +297,19 @@ function CustomerProfile() {
                     padding: "8px",
                     border: "1px solid #ccc",
                     borderRadius: "4px",
-                    boxSizing: "border-box"
+                    boxSizing: "border-box",
                   }}
                 />
               </div>
               <div style={{ marginBottom: "15px" }}>
-                <label style={{ display: "block", marginBottom: "5px", fontWeight: "bold", color: "#333" }}>
+                <label
+                  style={{
+                    display: "block",
+                    marginBottom: "5px",
+                    fontWeight: "bold",
+                    color: "#333",
+                  }}
+                >
                   Zip Code:
                 </label>
                 <input
@@ -236,7 +323,7 @@ function CustomerProfile() {
                     padding: "8px",
                     border: "1px solid #ccc",
                     borderRadius: "4px",
-                    boxSizing: "border-box"
+                    boxSizing: "border-box",
                   }}
                 />
               </div>
@@ -248,15 +335,16 @@ function CustomerProfile() {
                   color: "white",
                   border: "none",
                   borderRadius: "5px",
-                  cursor: "pointer"
+                  cursor: "pointer",
                 }}
               >
-                Submit Address
+                Add Address
               </button>
             </form>
           </div>
         )
       )}
+    </div>
     </div>
   );
 }

@@ -26,11 +26,8 @@ function BarNav() {
   const handleSearch = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.get(`${config.url}/product/search`, {
-        params: {
-          query: searchQuery,
-        },
-      });
+      const response = await axios.get(`${config.url}/products/search/${searchQuery}`);
+
       navigate("/search-results", { state: { products: response.data } });
     } catch (error) {
       console.error("Error during search:", error);

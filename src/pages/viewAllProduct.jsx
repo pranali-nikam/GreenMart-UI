@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { getAllProducts } from "../services/products";
+import { useParams, useNavigate } from "react-router-dom";
+import { getAllProducts, deleteProduct } from "../services/products";
 import Navbar from '../components/Navbar';
 
 
 function ViewAllProduct() {
+    const userId = sessionStorage.getItem("customerid"); // Example adminId, replace with dynamic value if needed
+    const navigate = useNavigate();
+
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
@@ -18,6 +22,20 @@ function ViewAllProduct() {
 
         fetchProducts();
     }, []);
+
+    const handleUpdateClick = (product) => {
+        navigate(`/updateAdminProduct/${product.productId}/${userId}`, { state: { product } });
+    };
+
+    const handleDeleteClick = async (productId) => {
+        try {
+            await deleteProduct(productId);
+            setProducts(products.filter((product) => product.productId !== productId));
+        } catch (error) {
+            console.error("Error deleting product:", error);
+        }
+    };
+
 
     return (
 
@@ -55,16 +73,42 @@ function ViewAllProduct() {
                                             </td>
                                             <td style={styles.tableCell}>{product.price}</td>
                                             <td style={styles.tableCell}>{product.categoryName}</td>
-                                            <td style={styles.tableCell}>
-                                                <a
-                                                    style={styles.btnWarning}
-                                                    href={`/updateProduct/${product.productId}`}
+                                            <td style={{
+                                                border: '1px solid #dddddd',
+                                                padding: '10px',
+                                                textAlign: 'center'
+                                            }}>
+                                                <button
+                                                    style={{
+                                                        backgroundColor: '#ffc107',
+                                                        color: '#ffffff',
+                                                        border: 'none',
+                                                        padding: '5px 10px',
+                                                        borderRadius: '4px',
+                                                        textDecoration: 'none'
+                                                    }}
+                                                    onClick={() => handleUpdateClick(product)}
                                                 >
                                                     Update
-                                                </a>
+                                                </button>
                                             </td>
-                                            <td style={styles.tableCell}>
-                                                <button style={styles.btnDanger}>Delete</button>
+                                            <td style={{
+                                                border: '1px solid #dddddd',
+                                                padding: '10px',
+                                                textAlign: 'center'
+                                            }}>
+                                                <button
+                                                    style={{
+                                                        backgroundColor: '#dc3545',
+                                                        color: '#ffffff',
+                                                        border: 'none',
+                                                        padding: '5px 10px',
+                                                        borderRadius: '4px'
+                                                    }}
+                                                    onClick={() => handleDeleteClick(product.productId)}
+                                                >
+                                                    Delete
+                                                </button>
                                             </td>
                                         </tr>
                                     ))}

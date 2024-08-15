@@ -3,11 +3,11 @@ import { getAllOrdersByStatus } from "../services/products";
 import Navbar from '../components/Navbar';
 
 
-function ViewAllPendingOrder() {
+function ViewAllDeliveredOrder() {
   const [orders, setOrders] = useState([]);
   const [page, setPage] = useState(0);
   const [pageSize, setPageSize] = useState(1);
-  const [status, setStatus] = useState('pending'); 
+  const [status, setStatus] = useState('Delivered'); 
   const [totalPages, setTotalPages] = useState(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -102,4 +102,4 @@ function ViewAllPendingOrder() {
   );
 }
 
-export default ViewAllPendingOrder;
+export default ViewAllDeliveredOrder;

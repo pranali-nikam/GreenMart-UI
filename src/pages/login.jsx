@@ -19,10 +19,12 @@ function LoginUser() {
         sessionStorage.setItem("name", name);
         if (result.role === "SELLER") {
           sessionStorage.setItem("sellerid", result.id);
+          sessionStorage.setItem("role", result.role);
           toast.success("Login successful");
           navigate("/SellerDashboard");
         } else if (result.role === "ADMIN") {
           sessionStorage.setItem("customerid", result.id);
+          sessionStorage.setItem("role", result.role);
           console.log(result);
           toast.success("Admin logged in successfully");
           navigate("/AdminDashboardPage");
@@ -83,7 +85,7 @@ function LoginUser() {
                   Don't have an account yet?{" "}
                   <Link to="/registerCustomer">Register as Customer</Link>
                 </div>
-                <button onClick={onLogin} className="button">
+                <button onClick={onLogin} className="btn btn-success">
                   <span className="label">LOGIN</span>
                 </button>
                 <div className="guest-link">
