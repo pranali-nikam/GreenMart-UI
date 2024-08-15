@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import Navbar from '../components/Navbar';
-import { getTotalProductCount, getOrderCounts } from "../services/products"; // Import the new function
+import { getTotalProductCount, getOrderCounts } from "../services/products";
 
 function SellerDashBoard() {
   const navigate = useNavigate();
   const sellerId = sessionStorage.getItem("sellerid");
+
   // State for product and order counts
   const [totalProductCount, setTotalProductCount] = useState(0);
   const [pendingCount, setPendingCount] = useState(0);
@@ -63,140 +64,131 @@ function SellerDashBoard() {
   };
 
   return (
+    <div style={{ textAlign: "center", padding: "50px 0" }}>
+      <Navbar />
+      <h1 style={{ marginBottom: "50px", marginTop: 100 }}>SELLER DASHBOARD</h1>
+      <div>
+        {/* Sidebar Navigation */}
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-md-3">
+              <nav className="sidebar">
+                <ul className="nav-menu">
+                  <div className="sidebar-menu">
+                    <button
+                      onClick={handleViewProfileClick}
+                      style={buttonStyle}
+                    >
+                      Profile
+                    </button>
+                  </div>
+                  <div className="sidebar-menu">
+                    <button
+                      onClick={handleViewProductClick}
+                      style={buttonStyle}
+                    >
+                      View Product
+                    </button>
+                  </div>
+                  <div className="sidebar-menu">
+                    <button
+                      onClick={handleViewPendingOrdersClick}
+                      style={buttonStyle}
+                    >
+                      View Pending Orders
+                    </button>
+                  </div>
+                  <div className="sidebar-menu">
+                    <button
+                      onClick={handleViewShippedOrdersClick}
+                      style={buttonStyle}
+                    >
+                      View Shipped Orders
+                    </button>
+                  </div>
+                  <div className="sidebar-menu">
+                    <button
+                      onClick={handleViewDeliveredOrdersClick}
+                      style={buttonStyle}
+                    >
+                      View Delivered Orders
+                    </button>
+                  </div>
+                  <div className="sidebar-menu">
+                    <button
+                      onClick={handleAddProductClick}
+                      style={buttonStyle}
+                    >
+                      Add Product
+                    </button>
+                  </div>
+                </ul>
+              </nav>
+            </div>
 
-   <div style={{ textAlign: "center", padding: "50px 0" }}>
-    <Navbar />
-    <h1 style={{ marginBottom: "50px", marginTop: 100 }}>SELLER DASHBOARD</h1>
-    <div>
-      {/* Sidebar Navigation */}
-      <div className="container-fluid">
-        <div className="row">
-          <div className="col-md-3">
-            <nav className="sidebar">
-              <ul className="nav-menu">
-                <div className="sidebar-menu">
-                  <button
-                    onClick={handleViewProfileClick}
-                    style={buttonStyle}
-                  >
-                    Profile
-                  </button>
+            {/* Dashboard Content */}
+            <div className="col-md-9">
+              <div style={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                gap: '20px'
+              }}>
+                <div style={cardStyle}>
+                  <p style={labelStyle}>Total Products</p>
+                  {loading ? (
+                    <p>Loading...</p>
+                  ) : error ? (
+                    <p>Error: {error}</p>
+                  ) : (
+                    <p style={countStyle}>
+                      <span>{totalProductCount}</span>
+                    </p>
+                  )}
                 </div>
-                <div className="sidebar-menu">
-                  <button
-                    onClick={handleViewProductClick}
-                    style={buttonStyle}
-                  >
-                    View Product
-                  </button>
-                </div>
-                <div className="sidebar-menu">
-                  <button
-                    onClick={handleViewPendingOrdersClick}
-                    style={buttonStyle}
-                  >
-                    View Pending Orders
-                  </button>
-                </div>
-                <div className="sidebar-menu">
-                  <button
-                    onClick={handleViewShippedOrdersClick}
-                    style={buttonStyle}
-                  >
-                    View Shipped Orders
-                  </button>
-                </div>
-                <div className="sidebar-menu">
-                  <button
-                    onClick={handleViewDeliveredOrdersClick}
-                    style={buttonStyle}
-                  >
-                    View Delivered Orders
-                  </button>
-                </div>
-                <div className="sidebar-menu">
-                  <button
-                    onClick={handleAddProductClick}
-                    style={buttonStyle}
-                  >
-                    Add Product
-                  </button>
-                </div>
-              </ul>
-            </nav>
-          </div>
 
-          {/* Dashboard Content */}
-          <div className="col-md-9">
-            <div className="seller-grid">
-              <div
-                className="seller-card"
-                style={cardStyle}
-              >
-                <p style={labelStyle}>Total Products</p>
-                {loading ? (
-                  <p>Loading...</p>
-                ) : error ? (
-                  <p>Error: {error}</p>
-                ) : (
-                  <p style={countStyle}>
-                    <span>{totalProductCount}</span>
-                  </p>
-                )}
-              </div>
+                <div style={cardStyle}>
+                  <p style={labelStyle}>Total Pending Orders</p>
+                  {loading ? (
+                    <p>Loading...</p>
+                  ) : error ? (
+                    <p>Error: {error}</p>
+                  ) : (
+                    <p style={countStyle}>
+                      <span>{pendingCount}</span>
+                    </p>
+                  )}
+                </div>
 
-              <div
-                className="seller-card"
-                style={cardStyle}
-              >
-                <p style={labelStyle}>Total Pending Orders</p>
-                {loading ? (
-                  <p>Loading...</p>
-                ) : error ? (
-                  <p>Error: {error}</p>
-                ) : (
-                  <p style={countStyle}>
-                    <span>{pendingCount}</span>
-                  </p>
-                )}
-              </div>
+                <div style={cardStyle}>
+                  <p style={labelStyle}>Total Shipped Orders</p>
+                  {loading ? (
+                    <p>Loading...</p>
+                  ) : error ? (
+                    <p>Error: {error}</p>
+                  ) : (
+                    <p style={countStyle}>
+                      <span>{shippedCount}</span>
+                    </p>
+                  )}
+                </div>
 
-              <div
-                className="seller-card"
-                style={cardStyle}
-              >
-                <p style={labelStyle}>Total Shipped Orders</p>
-                {loading ? (
-                  <p>Loading...</p>
-                ) : error ? (
-                  <p>Error: {error}</p>
-                ) : (
-                  <p style={countStyle}>
-                    <span>{shippedCount}</span>
-                  </p>
-                )}
-              </div>
-
-              <div
-                className="seller-card"
-                style={cardStyle}
-              >
-                <p style={labelStyle}>Total Delivered Orders</p>
-                {loading ? (
-                  <p>Loading...</p>
-                ) : error ? (
-                  <p>Error: {error}</p>
-                ) : (
-                  <p style={countStyle}>
-                    <span>{deliveredCount}</span>
-                  </p>
-                )}
+                <div style={cardStyle}>
+                  <p style={labelStyle}>Total Delivered Orders</p>
+                  {loading ? (
+                    <p>Loading...</p>
+                  ) : error ? (
+                    <p>Error: {error}</p>
+                  ) : (
+                    <p style={countStyle}>
+                      <span>{deliveredCount}</span>
+                    </p>
+                  )}
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
     </div>
   );
 }
@@ -205,7 +197,7 @@ export default SellerDashBoard;
 
 // Inline CSS styles
 const buttonStyle = {
-  backgroundColor: '#28a745', // Green color
+  backgroundColor: '#28a745',
   color: 'white',
   border: 'none',
   borderRadius: '4px',
@@ -214,16 +206,18 @@ const buttonStyle = {
   cursor: 'pointer',
   fontSize: '16px',
   textAlign: 'center',
-  width: '100%'
+  width: '100%',
+  boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)'
 };
 
 const cardStyle = {
   backgroundColor: '#f8f9fa',
   border: '1px solid #dee2e6',
   borderRadius: '8px',
-  padding: '20px',
+  padding: '30px',
   textAlign: 'center',
   marginBottom: '20px',
+  width: 'calc(50% - 30px)',
   boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
 };
 

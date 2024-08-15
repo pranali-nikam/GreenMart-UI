@@ -1,19 +1,34 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import '../css/Navbar.css'; // Ensure this CSS file is correctly linked
 import logo from "../images/logo.png"
 
 
 function Navbar() {
+
+  const role = sessionStorage.getItem("role");
+  const navigate = useNavigate(); // Use navigate hook for programmatic navigation
+
+  const handleLogoClick = () => {
+    // Navigate based on user role
+    if (role === 'ADMIN') {
+      navigate('/AdminDashboardPage'); // Redirect to admin page
+    } else if (role === 'SELLER') {
+      navigate('/SellerDashboard'); // Redirect to sellers page
+    } else {
+      navigate('/'); // Default redirect or to a common page for other roles
+    }
+  };
+
   return (
     <div className="container-fluid p-0 fixed-top">
        <nav className='navbar navbar-expand-lg'>
       <div className='container-fluid'>
-        {/* Brand section (you can customize or remove this if needed) */}
-        <a className='navbar-brand' href='/'>
-          {/* Logo or Brand Name */}
-          <img src={logo} alt="Logo" style={{ width: " 90px" }} />
-        </a>
+       <div className='navbar-brand' onClick={handleLogoClick} style={{ cursor: 'pointer' }}>
+            {/* Logo */}
+            <img src={logo} alt="Logo" style={{ width: "90px" }} />
+          </div>
         
         {/* Sign Out button */}
         <div className='navbar-nav ms-auto'>

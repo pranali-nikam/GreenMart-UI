@@ -238,6 +238,27 @@ export async function getAllOrderCounts() {
   }
 }
 
+export async function getTotalUsers() {
+  try {
+    const response = await axios.get(`${config.url}/admin/countOfUsers`);
+    return response.data;
+   
+  } catch (error) {
+    throw new Error("Error fetching total user count : " + error.message);
+  }
+}
+
+
+export async function getTotalSellers() {
+  try {
+    const response = await axios.get(`${config.url}/admin/countOfSellers`);
+    return response.data;
+   
+  } catch (error) {
+    throw new Error("Error fetching total seller count : " + error.message);
+  }
+}
+
 
 export const getAllOrdersByStatus = async (page, pageSize, status) => {
   try {
@@ -274,3 +295,16 @@ export async function getSellers() {
   }
 }
 
+export async function updateShippedOrderStatus(orderId, status) {
+  try {
+    const response = await axios.patch(`${config.url}/admin/updateOrderByStatus`, null, {
+      params: {
+        orderId,
+        status,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    throw new Error("Error updating order: " + error.message);
+  }
+}

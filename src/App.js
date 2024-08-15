@@ -37,8 +37,9 @@ import ViewSeller from './pages/viewSeller';
 import ViewAllProduct from './pages/viewAllProduct';
 import ViewAllPendingOrder from './pages/viewAllPendingOrder';
 import ViewAllShippedOrder from './pages/viewAllShippedOrder';
-
-
+import ViewAllDeliveredOrder from './pages/viewAllDeliveredOrder';
+import UpdateAdminProduct from './pages/updateAdminProduct';
+import OrdersPage from './pages/OrdersPage';
 
 function App() {
   return (
@@ -65,6 +66,7 @@ function App() {
         <Route path="add-product/:sellerId" element={<AddProductPage />} />
         <Route path="viewProduct/:sellerId" element={<ViewProduct />} />
         <Route path='/updateProduct/:productId/:sellerId' element={<UpdateProduct/>}/>
+        <Route path='/updateAdminProduct/:productId/:userId' element={<UpdateAdminProduct/>}/>
         <Route path='/viewPendingOrder/:sellerId' element={<ViewPendingOrder/>}/>
         <Route path='/viewShippedOrder/:sellerId' element={<ViewShippedOrder/>}/>
         <Route path='/viewDeliveredOrder/:sellerId' element={<ViewDeliveredOrder/>}/>
@@ -73,8 +75,9 @@ function App() {
         <Route path='/viewCustomer' element={<ViewCustomer/>}/>
         <Route path='/viewAllProduct' element={<ViewAllProduct/>}/>
         <Route path='/viewAllPendingOrder' element={<ViewAllPendingOrder/>}/>
-        <Route path='/viewAllShippedOrder' element={<ViewAllPendingOrder/>}/>
-
+        <Route path='/viewAllShippedOrder' element={<ViewAllShippedOrder/>}/>
+        <Route path='/viewAllDeliveredOrder' element={<ViewAllDeliveredOrder/>}/>
+        <Route path='/orders/:customerId' element= {<OrdersPage/>}/>
 
 
 

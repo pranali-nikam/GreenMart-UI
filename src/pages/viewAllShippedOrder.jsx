@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getAllOrdersByStatus } from "../services/products";
+import { getAllOrdersByStatus ,updateShippedOrderStatus} from "../services/products";
 import Navbar from '../components/Navbar';
 
 
@@ -35,6 +35,19 @@ function ViewAllShippedOrder() {
     }
   };
 
+  const handleDeliverClick = async (orderId) => {
+    try {
+      await updateShippedOrderStatus(orderId, 'DELIVERED'); // Update order status
+      // Refresh the orders list
+      const updatedOrders = await getAllOrdersByStatus(page, pageSize, 'SHIPPED');
+      setOrders(updatedOrders.content);
+      setTotalPages(updatedOrders.totalPages);
+    } catch (error) {
+      setError("Error updating order status: " + error.message);
+    }
+  };
+
+
   return (
 
     <div style={{ textAlign: "center", padding: "50px 0" }}>
@@ -60,6 +73,8 @@ function ViewAllShippedOrder() {
                   <th style={{ border: "1px solid #dddddd", padding: "10px", textAlign: "center" }}>Shipping Address</th>
                   <th style={{ border: "1px solid #dddddd", padding: "10px", textAlign: "center" }}>Payment Method</th>
                   <th style={{ border: "1px solid #dddddd", padding: "10px", textAlign: "center" }}>Status</th>
+                  <th style={{ border: "1px solid #dddddd", padding: "10px", textAlign: "center" }}>Action</th>
+
                 </tr>
               </thead>
               <tbody>
@@ -78,6 +93,14 @@ function ViewAllShippedOrder() {
                     </td>
                     <td style={{ border: "1px solid #dddddd", padding: "10px", textAlign: "center" }}>{order.paymentMethod}</td>
                     <td style={{ border: "1px solid #dddddd", padding: "10px", textAlign: "center" }}>{order.orderItem.status}</td>
+                    <td style={{ border: "1px solid #dddddd", padding: "10px", textAlign: "center" }}>
+                      <button
+                          className="btn btn-warning"
+                          onClick={() => handleDeliverClick(order.orderId)}
+                        >
+                          Deliver
+                        </button>
+                      </td>
                   </tr>
                 ))}
               </tbody>

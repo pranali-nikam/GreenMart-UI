@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
-import { getAllOrderCounts, getAllProductCount } from '../services/products';
+import { getAllOrderCounts, getAllProductCount, getTotalUsers, getTotalSellers } from '../services/products';
 
 function AdminDashboard() {
     const navigate = useNavigate();
@@ -10,6 +10,9 @@ function AdminDashboard() {
     // State for product and order counts
     const [allProductCount, setAllProductCount] = useState(0);
     const [allOrderCount, setAllOrderCount] = useState(0);
+    const [totalUsers, setTotalUsers] = useState(0);
+    const [totalSellers, setTotalSellers] = useState(0);
+
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
@@ -23,6 +26,12 @@ function AdminDashboard() {
                 // Fetch order counts
                 const orderCounts = await getAllOrderCounts();
                 setAllOrderCount(orderCounts);
+
+                const totalUsers = await getTotalUsers();
+                setTotalUsers(totalUsers);
+
+                const totalSellers = await getTotalSellers();
+                setTotalUsers(totalSellers);
 
                 setLoading(false);
             } catch (error) {
@@ -178,6 +187,32 @@ function AdminDashboard() {
                                     )}
                                 </div>
 
+                                <div style={cardStyle}>
+                                    <p style={labelStyle}>Total Users</p>
+                                    {loading ? (
+                                        <p>Loading...</p>
+                                    ) : error ? (
+                                        <p>Error: {error}</p>
+                                    ) : (
+                                        <p style={countStyle}>
+                                            <span>{totalUsers}</span>
+                                        </p>
+                                    )}
+                                </div>
+
+                                <div style={cardStyle}>
+                                    <p style={labelStyle}>Total Sellers</p>
+                                    {loading ? (
+                                        <p>Loading...</p>
+                                    ) : error ? (
+                                        <p>Error: {error}</p>
+                                    ) : (
+                                        <p style={countStyle}>
+                                            <span>{totalSellers}</span>
+                                        </p>
+                                    )}
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -208,9 +243,10 @@ const cardStyle = {
     backgroundColor: '#f8f9fa',
     border: '1px solid #dee2e6',
     borderRadius: '8px',
-    padding: '20px',
+    padding: '30px', // Increased padding for larger cards
     textAlign: 'center',
     marginBottom: '20px',
+    width: 'calc(50% - 30px)', // Make the cards wider
     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
 };
 
